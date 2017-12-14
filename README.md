@@ -1,9 +1,11 @@
-Nechetov Evgeniy
-Loft School, webdev advanced 12/2017
+Нечетов Евгений
+Продвинутый курс по веб-разработке Loftschool, 12/2017
+Gulp-WebPack
 
+Для работы сборки у вас должны быть установлены
 npm 5
 gulp-cli
 
-Install:
-1.Git clone
-2.npm i
+Инструкции по установке
+git clone
+npm i
