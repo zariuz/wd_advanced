@@ -3,9 +3,9 @@
 Gulp-WebPack
 
 Для работы сборки у вас должны быть установлены
-npm 5
-gulp-cli
+1. gulp-cli
+2. npm 5
 
 Инструкции по установке
-git clone
-npm i
+1. git clone
+2. npm i
