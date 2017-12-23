@@ -1,0 +1,53 @@
+extends ../template
+include ../mixins/mixins
+
+block content
+    .wrapper
+        include ../modules/fixed-menu
+        header.header
+            +header("img/svg/sprite.min.svg#portfolio_header", "Евгений Нечетов", "Личный сайт Front-end разработчика")
+        main.content
+            section.about#up
+                svg.left-svg(viewbox="0 0 1000 175" preserveAspectRatio="none")
+                    polygon(points="0,175 1000,175 1000,0")
+                svg.right-svg(viewbox="0 0 1000 175" preserveAspectRatio="none")
+                    polygon(points="0,175 1000,175 1000,0")
+                .about-records
+                    .records-info
+                        h1.records-info__caption
+                            .title-main Обо мне
+                            .records-caption
+                                svg.records-caption__svg
+                                    use(xlink:href="img/svg/sprite.min.svg#about_header")
+                        .records-info__description
+                            .records-info__photo(style="background-image: url(img/content/ava_about.jpg);")
+                            h2.records-info__caption
+                                .title-block Кто я
+                            .records-info__text
+                                p Я веб разработчик из г. Санкт-Петербург. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                                p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+                .about-skills
+                    .skills-info
+                        h2.skills-info__description Чем я могу быть вам полезен
+                        .skills-info__text
+                            p Больше всего меня привлекает Front-end разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
+                        .skills-info__content
+                            ul.skills-list
+                              +skills-list("Front-end", ["HTML5, CSS3", "SASS, PUG", "JavaScript & jQuery", "Vue.js"], "4")       
+                              +skills-list("Back-end", ["PHP", "mySQL", "Node.js & npm", "MongoDB"], "4")       
+                              +skills-list("WorkFlow", ["Git", "Gulp", "WebPack"], "3")       
+            section.google-map
+                #map
+                .map-container
+                    .map-info
+                        h2.map-title
+                            .title-block Контакты
+                        ul.map-list
+                            +map-list("img/svg/sprite.min.svg#skype", 'skype:evgeniy-nechetov', 'evgeniy-nechetov')       
+                            +map-list("img/svg/sprite.min.svg#envelope", 'mailto:nechetov@hotmail.com', 'nechetov@hotmail.com')        
+                            +map-list("img/svg/sprite.min.svg#phone", 'tel:79315433115', '+7 931 543 31 15') 
+                            +map-list("img/svg/sprite.min.svg#map_marker", 'http://www.google.com','Россия, г.Санкт-Петербург, бул.Серебристый, 18', '_blank')
+        footer.footer.footer_position_absolute
+            +footer
+    script(src="https://maps.googleapis.com/maps/api/js?key=")
+    script(src='js/main.min.js')

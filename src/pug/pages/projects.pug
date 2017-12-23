@@ -1,0 +1,76 @@
+extends ../template
+include ../mixins/mixins
+
+block content
+    .wrapper
+        include ../modules/fixed-menu
+        header.header
+            +header("img/svg/sprite.min.svg#portfolio_header", "Евгений Нечетов", "Личный сайт Front-end разработчика")
+        main.content
+            section.works#up
+                svg.left-svg(viewbox="0 0 1000 175" preserveAspectRatio="none")
+                    polygon(points="0,175 1000,175 1000,0" fill="#faf8f0")
+                svg.right-svg.right-svg_position(viewbox="0 0 1000 175" preserveAspectRatio="none")
+                    polygon(points="0,175 1000,175 1000,0" fill="#faf8f0")
+                h1.works-title
+                    .title-main Мои работы
+                    .works-title__image
+                        svg.title-svg
+                            use(xlink:href="img/svg/sprite.min.svg#works_header")
+                .portfolio-body
+                    .portfolio-slider
+                        .portfolio-slider__text
+                            h1.portfolio-slider__text-capt
+                            .portfolio-slider__text-tech
+                            a.portfolio-text__but(href="#") Перейти на сайт
+                                svg.portfolio-slider__text-svg
+                                      use(xlink:href="img/svg/sprite.min.svg#link")
+                        .portfolio-slider__head
+                            .portfolio-slider__head-box
+                                img.portfolio-slider__head-img(src="" alt="")
+                        .portfolio-slider__slides
+                            .portfolio-slider__slides-container
+                                a.portfolio-slider__slides-navlink(href="#")
+                                    svg.portfolio-slider__slides-navsvg
+                                        use(xlink:href="img/svg/sprite.min.svg#portf_arrow_down")
+                                ul.portfolio-slider__slides-list        
+                            .portfolio-slider__slides-container
+                                a.portfolio-slider__slides-navlink(href="#")
+                                    svg.portfolio-slider__slides-navsvg
+                                        use(xlink:href="img/svg/sprite.min.svg#portf_arrow_up")
+                                ul.portfolio-slider__slides-list
+            section.feed
+                .feed-wrapper
+                    h2.feed-title
+                        .title-main Что обо мне говорят
+                        .feed-title__image
+                            svg.title-svg
+                                use(xlink:href="img/svg/sprite.min.svg#about_header")
+                    .feed-bg
+                        img.feed-bg__img(src='img/bg/bg_projects.png')
+                    ul.feed-list
+                        +feed-list("Этот парень проходил обучение веб-разработке не где-то, а в Loftschool, 4 месяца только самых тяжелых испытаний и бессонных ночей!", "background-image: url(img/content/dima.png)", "Ковальчук Дмитрий", "Основатель Loftschool")
+                        +feed-list("Этот код выдержит любые испытания. Только, пожалуйста, не загружайте сайт на слишком старых браузерах!", "background-image: url(img/content/vova.png)", "Сабанцев Владимир", "Преподователь")
+                    .feed-form
+                        .feed-form__blur
+                            .feed-form__bg
+                        .feed-form__wrapper
+                            h2.feed-form__capt
+                                .title-block Связаться со мной
+                            form.form(method="post")
+                                .form-row
+                                    input.form-row__input(type="text" placeholder="Имя" name="name")
+                                .form-row
+                                    input.form-row__input(type="email" placeholder="E-mail" name="email")
+                                .form-row
+                                        input.form-row__textarea(type="textarea" placeholder="Ваше сообщение" name="message")
+                                .form-but
+                                    input.form-row__submit(type="submit" value="Отправить")
+                                    input.form-row__clean(type="reset" value="Очистить")
+                    .back-arrow
+                        a.next-arrow__but(href="#up")
+                            svg.next-arrow__svg
+                                use(xlink:href="img/svg/sprite.min.svg#arrow_down")
+        footer.footer
+            +footer
+    script(src='js/main.min.js')

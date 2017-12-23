@@ -1,0 +1,41 @@
+// Media
+
+@function rem($px) {
+	@return $px / 16px + 0rem;
+}
+
+@mixin desktopW {
+	@media screen and (max-width: $desktopW) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media screen and (max-width: $desktop) {
+		@content;
+	}
+}
+@mixin laptops {
+	@media screen and (max-width: $laptop) {
+		@content;
+	}
+}
+
+
+@mixin tablets {
+	@media screen and (max-width: $tablets) {
+		@content;
+	}
+}
+
+@mixin phones {
+	@media screen and (max-width: $phones) {
+		@content;
+	}
+}
+
+@mixin vertical {
+	@media screen and (max-width: $vertical) {
+		@content;
+	}
+}

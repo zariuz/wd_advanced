@@ -13,44 +13,68 @@ const webpackConfig = require('./webpack.config.js');
 
 const autoprefixer = require('gulp-autoprefixer');
 const svgSprite = require('gulp-svg-sprites');
+const svgmin = require('gulp-svgmin');
 const cheerio = require('gulp-cheerio');
+
+const plumber = require('gulp-plumber');
+const notify = require('gulp-notify');
+const imagemin = require('gulp-imagemin');
+const normalize = require('node-normalize-scss');
+const replace = require('gulp-replace');
 
 
 const paths = {
     root: './build',
-    templates: {
-        pages: 'src/templates/pages/*.pug',
-        src: 'src/templates/**/*.pug'
+
+    pug: {
+        pages: 'src/pug/pages/*.pug',
+        src: 'src/pug/**/*.pug',
+        dest: 'build/',
     },
     styles: {
-        src: 'src/styles/**/*.scss',
-        dest: 'build/assets/styles/'
+        src: 'src/scss/**/*.scss',
+        dest: 'build/css/',
     },    
     images: {
-        src: 'src/images/**/*.*',
-        dest: 'build/assets/images/'
+        src: 'src/img/{bg,content,icons}/*',
+        dest: 'build/img/',
     },
     scripts: {
-        src: 'src/scripts/**/*.js',
-        dest: 'build/assets/scripts/'
+        src: 'src/js/**/*.js',
+        dest: 'build/js/',
+    },
+    fonts: {
+        src: 'src/fonts/**/*.*',
+        dest: 'build/fonts/',
+    },
+    svg: {
+        src: 'src/img/icons/*.svg',
+        dest: 'build/img',
     }
 }
 
 // pug
 function templates() {
-    return gulp.src(paths.templates.pages)
-        .pipe(pug({ pretty: true }))
-        .pipe(gulp.dest(paths.root));
+    return gulp.src(paths.pug.pages)
+        .pipe(plumber())
+        .pipe(pug({ pretty: '\t' }))
+//      .pipe(notify('Template success'))
+        .pipe(plumber.stop())
+        .pipe(gulp.dest(paths.pug.dest));
 }
 
 // scss
-function styles() {
-    return gulp.src('./src/styles/app.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'compressed'}))
+function scss() {
+    return gulp.src('./src/scss/main.scss')
+        .pipe(plumber())
+        .pipe(sass({ includePaths: normalize.includePaths }))
         .pipe(sourcemaps.write())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(paths.styles.dest))
+        .pipe(autoprefixer())
+        .pipe(sourcemaps.init())
+        .pipe(rename({ suffix: '.min' }))
+//      .pipe(notify('Style success'))
+        .pipe(plumber.stop())
+        .pipe(gulp.dest(paths.styles.dest));
 }
 
 // clean
@@ -60,17 +84,18 @@ function clean() {
 
 // webpack
 function scripts() {
-    return gulp.src('src/scripts/app.js')
+    return gulp.src('src/js/main.js')
         .pipe(gulpWebpack(webpackConfig, webpack)) 
         .pipe(gulp.dest(paths.scripts.dest));
 }
 
 // галповский вотчер
 function watch() {
-    gulp.watch(paths.styles.src, styles);
-    gulp.watch(paths.templates.src, templates);
-    gulp.watch(paths.images.src, images);
+	gulp.watch(paths.pug.src, templates);    
+	gulp.watch(paths.styles.src, scss);
     gulp.watch(paths.scripts.src, scripts);
+    gulp.watch(paths.images.src, imgMin);    
+    gulp.watch(paths.fonts.src, fonts);        
 }
 
 // локальный сервер + livereload (встроенный)
@@ -81,50 +106,73 @@ function server() {
     browserSync.watch(paths.root + '/**/*.*', browserSync.reload);
 }
 
-// svg
-function svg() {
-    return gulp.src(paths.svg.src)
-        // remove attribute
+// img
+function imgMin() {
+    return gulp.src(paths.images.src)
+        .pipe(plumber())
+        .pipe(imagemin())
+//      .pipe(notify('Image success'))
+        .pipe(plumber.stop())
+        .pipe(gulp.dest(paths.images.dest));
+}
+
+//  svg
+function sprites() {
+    return gulp.src('src/img/svg/*.svg')
+        .pipe(plumber())    
+        .pipe(svgmin({
+            js2svg: {
+                pretty: true
+            }
+        }))
         .pipe(cheerio({
             run: function ($) {
                 $('[fill]').removeAttr('fill');
-                $('[stroke]').removeAttr('stroke');
                 $('[style]').removeAttr('style');
             },
-            parserOptions: {xmlMode: true}
+            parserOptions: { xmlMode: false },
         }))
-        // svg sprite
-        .pipe(svgSprite({
-            mode: "symbols",
-            selector: "icon-%f",
-            svg: {
-                symbols: "sprite.svg"
-            },
-            preview: false
-            }
-        ))
-        .pipe(gulp.dest(paths.svg.dest));
+        .pipe(replace('&gt;', '>'))
+        .pipe(svgSprite({ 
+            mode: 'symbols',
+            preview: false,
+         }))
+        .pipe(gulp.dest('src/img/'))        
+        .pipe(rename({ 
+            basename: 'sprite',
+            suffix: '.min',
+        }))
+//      .pipe(notify('Create sprite svg success'))
+        .pipe(plumber.stop())
+        .pipe(gulp.dest('build/img/'));
 }
 
 // переносим картинки
 function images() {
-    return gulp.src(paths.images.src)
-        .pipe(gulp.dest(paths.images.dest));
+    return gulp.src(paths.img.src)
+        .pipe(gulp.dest(paths.img.dest));
 }
 
 // переносим шрифты
 function fonts() {
     return gulp.src(paths.fonts.src)
-        .pipe(gulp.dest(paths.fonts.dest));
+//      .pipe(notify('Fonts success'))
+        .pipe(gulp.dest(paths.fonts.dest))
 }
 
+
+// exports
+exports.sprites = sprites;
 exports.templates = templates;
-exports.styles = styles;
+exports.scss = scss;
+exports.scripts = scripts;
+exports.imgMin = imgMin;
 exports.clean = clean;
-exports.images = images;
+exports.watch = watch;
 
 gulp.task('default', gulp.series(
     clean,
-    gulp.parallel(styles, templates, images, scripts),
-    gulp.parallel(watch, server)
+    sprites,
+    gulp.parallel(templates, scss, scripts, imgMin, fonts),
+	gulp.parallel(watch, server)
 ));

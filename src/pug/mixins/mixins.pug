@@ -1,0 +1,112 @@
+//- Header
+mixin header(path, name, text, className)
+    .header-bg
+        .header-bg__pic
+    .socials
+        ul.socials__list
+            +headerSocials("img/svg/sprite.min.svg#vk", "https://vk.com/enechetov")
+            +headerSocials("img/svg/sprite.min.svg#github", "https://github.com/zariuz/")
+            +headerSocials("img/svg/sprite.min.svg#in", "https://github.com/zariuz/")
+    .navigation__but
+        a.navigation__but-link(href="#")
+    .header-name
+        svg.header-name__image
+            use(xlink:href=path)
+    .header-info
+        .header-info__photo(style="background-image: url(img/content/ava_index.jpg);")
+        .header-info__name(class=className)=name
+        .header-info__capt=text
+    .next-arrow
+        a.next-arrow__but(href="#up")
+            svg.next-arrow__svg
+                use(xlink:href="img/svg/sprite.min.svg#arrow_down")
+
+mixin headerSocials(path, link)
+    li.socials__item
+        a.socials__link(href=link target="_blank")
+            svg.socials__svg
+                use(xlink:href=path)
+
+mixin socials(path, link)
+    li.front-info__item
+        a.front-info__link(href=link target="_blank")
+            svg.front-info__svg
+                use(xlink:href=path)
+
+//- Blog page
+mixin blog-nav(title)
+    li.blog-nav__item
+        a(href="#")=title
+
+mixin blog-info(title, date, text, text2)
+    article.blog-info__item
+        h2=title
+        div=date
+        p=text
+        p=text2
+
+//- About page
+mixin skills-list(skill, text, count)
+        li.skills-list__item
+            .skills-row
+                .skills-row__title= skill
+                ul.skills-row__list
+                    - for (var i = 0; i < count; i++) {  
+                        li.skills-row__item
+                            svg.skills-row__circle(viewBox="0 0 110 110")
+                                circle(cx="50%" cy="50%" r="45" fill="none" class="skills-row__circle-first")
+                                circle(cx="50%" cy="50%" r="45" class="skills-row__circle-second" transform="rotate(-90 55 55)")
+                            .skills-row__text= text[i]
+                    - }
+
+mixin map-list(path, link, text, newPage)
+        li.map-list__item
+            a.map-list__link(href=link target=newPage)
+                svg.map-list__icon
+                    use(xlink:href=path)
+                .map-list__text=text
+
+//- Projects page
+mixin feed-list(feed, avatar, name, text)
+        li.feed-list__item
+            .feed-list__text=feed
+            .feed-list__description
+                .feed-list__photo
+                    .feed-list__pic(style=avatar)
+                .feed-list__person
+                    .feed-list__name=name
+                    .feed-list__occupation=text
+
+//- Footer
+mixin footer
+    .footer-top
+        nav.foot-nav
+            ul.foot-nav__list
+                li.foot-nav__item
+                    a.foot-nav__link(href="projects.html") Мои работы
+                        .foot-nav__link-box
+                li.foot-nav__item
+                    a.foot-nav__link(href="about.html") Обо мне
+                        .foot-nav__link-box
+                li.foot-nav__item
+                    a.foot-nav__link(href="blog.html") Блог
+                        .foot-nav__link-box                        
+                li.foot-nav__item
+                    a.foot-nav__link(href="index.html") Авторизация
+                        .foot-nav__link-box                    
+        .foot-socials
+            ul.foot-soc__list
+                +footSocials("img/svg/sprite.min.svg#vk", "img/svg/sprite.min.svg#vk_round", "https://vk.com/enechetov", "30", "30", "10", "10")
+                +footSocials("img/svg/sprite.min.svg#github", "img/svg/sprite.min.svg#github_round", "https://github.com/zariuz/", "26", "26", "12", "12")
+                +footSocials("img/svg/sprite.min.svg#in", "img/svg/sprite.min.svg#in_round", "https://github.com/zariuz/", "24", "24", "14", "10")
+    .footer-bottom
+        .foot-info Я веб-разработчик из Санкт-Петербурга, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+        .foot-copyright &copy Веб-разработчик Евгений Петрович | создано с любовью | 2017
+        
+mixin footSocials(path, pathBack, link, widthSvg, heightSvg, posX, posY)
+    li.foot-soc__item
+        a.foot-soc__link(href=link target="blank" width="30" height="32")
+            svg.foot-soc__svg(viewBox="-1 -1 52 52")
+                circle(cx="25" cy="25" r="25" class="foot-soc__circle-first")
+                use(xlink:href=pathBack class="foot-soc__hovericon" width="50" height="50")
+                use(x=posX y=posY xlink:href=path class="foot-soc__icon" width=widthSvg height=heightSvg)

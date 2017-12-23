@@ -1,0 +1,155 @@
+// Header
+
+.header {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+
+    @include tablets() {
+        min-height: 78vh;
+    }
+    @include phones() {
+        min-height: 84vh;
+    }
+    @include vertical() {
+        min-height: 97vh;        
+    }
+}
+
+.header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: rem(1315px);
+    z-index: 0;
+    &__pic {
+        background: url(../img/bg/bg_index.jpg) no-repeat;
+        background-position: center top;
+        background-size: cover;
+        width: 100%;
+        max-width: 180%;       
+        height: 100%;
+    }
+}
+
+.socials {
+    display: inline-block;
+    position: absolute;
+    top: rem(30px);
+    left: rem(31px);
+    z-index: 100;
+    &__list {
+        display: flex;
+    }
+}
+
+.socials__item {
+    margin-left: rem(31px);
+
+    @include vertical() {
+        margin-left: rem(20px);
+    }
+    &:first-child {
+        margin-left: 0;
+    }
+}
+
+.socials__link {
+    display: inline-block;
+}
+
+.socials__svg {
+    width: rem(25px);
+    height: rem(25px);
+    fill: #fff;
+    opacity: 0.7;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.header-name {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 100%;
+
+    &__image {
+        width: 100%;
+        max-width: 100%;
+        height: rem(300px);
+        fill: rgba(255, 255, 255, .07);
+    }
+}
+
+// Header info
+
+.header-info {
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    align-items: center;
+    z-index: 10;
+    transition: opacity 1s;
+}
+
+.header-info__photo {
+    width: rem(140px);
+    height: rem(140px);
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-bottom: rem(20px);  
+}
+
+.header-info__name {
+    font-family: "Roboto-Medium";
+    font-size: rem(35px);
+    color: #fff;
+    position: relative;    
+}
+
+.header-info__capt {
+    font-family: "Roboto-Light";
+    font-size: rem(16px);
+    color: #fff;
+}
+
+.next-arrow {
+    position: absolute;
+    bottom: 10%;
+    left: 50%; 
+    transform: translate(-50%, -10%);
+    z-index: 150;
+
+    @include tablets() {
+        z-index: 50;
+    }
+
+    &__but {
+        display: inline-block;
+        transition: .3s;    
+        &:hover {
+        transform: scale(1.3);
+        transition: .3s;
+        }
+    }
+    
+    &__svg {
+    width: rem(25px);
+    height: rem(25px);
+    fill: #fff;
+    opacity: 0.7;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

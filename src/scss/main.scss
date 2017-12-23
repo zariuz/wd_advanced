@@ -1,0 +1,39 @@
+// colors
+$greenL: #00bfa5;
+$greenD:#098d85;
+
+// resolutions
+$desktopW: 1800px;
+$desktop: 1200px;
+$laptop: 992px;
+$tablets: 768px;
+$phones: 480px;
+$vertical: 320px;
+
+// normalize
+@import "normalize";
+
+// components
+@import "components/media.scss";
+@import "components/mixins.scss";
+
+
+// layout
+@import "layout/fonts.scss";
+@import "layout/base.scss";
+@import "layout/adjustment.scss";
+
+// sections
+@import "modules/fixed-menu.scss";
+@import "modules/header.scss";
+@import "modules/slider.scss";
+@import "modules/feed-form.scss";
+@import "modules/footer.scss";
+@import "modules/popups.scss";
+@import "modules/skills-anim.scss";
+
+// sections
+@import "pages/index.scss";
+@import "pages/about.scss";
+@import "pages/projects.scss";
+@import "pages/blog.scss";

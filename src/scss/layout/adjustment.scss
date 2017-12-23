@@ -1,0 +1,134 @@
+// Adjustment
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    min-width: rem(300px);
+    overflow: hidden;
+  }
+  
+.maincontent {
+    height: 100%;
+    min-height: rem(650px);
+    transition: transform 1s;
+    will-change: transform;
+  
+    @include tablets {
+    min-height: auto;
+    }
+}
+  
+.header_upper_case {
+  text-transform: uppercase;
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 45%;
+    left: rem(-45px);
+    width: rem(22px);
+    height: rem(5px);
+    background-color: #fff;
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 45%;
+    right: rem(-45px);
+    width: rem(22px);
+    height: rem(5px);
+    background-color: #fff;
+  } 
+}
+
+.title-main {
+    display: inline-block;
+    position: relative;
+    font-family: "Bernier";    
+    font-size: rem(63px);
+    color: #373e42;
+
+    @include vertical() {
+      font-size: rem(45px);
+  }
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 45%;
+        left: rem(-45px);
+        width: rem(22px);
+        height: rem(5px);
+        background-color: rgba(0, 0, 0, 0.2)
+    }
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 45%;
+        right: rem(-45px);
+        width: rem(22px);
+        height: rem(5px);
+        background-color: rgba(0, 0, 0, 0.2)
+    } 
+}
+
+.title-block {
+  display: inline-block;
+  position: relative;
+  font-family: "Bernier";    
+  font-size: rem(35px);
+  color: #455a64;
+  
+  @include vertical() {
+    font-size: rem(28px);
+  }
+
+  &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 45%;
+      left: rem(-45px);
+      width: rem(22px);
+      height: rem(5px);
+      background-color: rgba(0, 0, 0, 0.2)
+  }
+  &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 45%;
+      right: rem(-45px);
+      width: rem(22px);
+      height: rem(5px);
+      background-color: rgba(0, 0, 0, 0.2)
+  }
+}
+  
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+  .clearfix { display: inline-block; }
+  * html .clearfix { height: 1%; }
+  .clearfix { display: block; }
+  
+  .visuallyhidden:not(:focus):not(:active) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }

@@ -1,0 +1,30 @@
+extends ../template
+include ../mixins/mixins
+    
+block content
+    .wrapper
+        section.welcome-block
+            .welcome-block__button
+                a.welcome-block__link Авторизоваться
+            .welcome-container
+                .welcome-container__front
+                    .front-info
+                        .front-info__photo(style="background-image: url(img/content/ava_index.jpg);")
+                        .front-info__name Евгений Нечетов
+                        .front-info__capt Личный сайт Front-end разработчика
+                        .front-info__socials
+                            ul.front-info__list
+                                +socials("img/svg/sprite.min.svg#vk", 'https://vk.com/enechetov')
+                                +socials("img/svg/sprite.min.svg#github", 'https://github.com/zariuz')
+                                +socials("img/svg/sprite.min.svg#in", 'https://github.com/zariuz')
+                    nav.front-nav
+                        ul.front-nav__list
+                            li.front-nav__item
+                                a.front-nav__link(href='projects.html') Мои работы
+                            li.front-nav__item
+                                a.front-nav__link(href='about.html') Обо мне
+                            li.front-nav__item                        
+                                a.front-nav__link(href='blog.html') Блог
+            footer.welcome-block__footer
+                .welcome-block__text  © Нечетов Евгений | создано с любовью | 2017
+    script(src='js/main.min.js')
