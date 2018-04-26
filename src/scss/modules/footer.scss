@@ -1,144 +1,147 @@
 // Footer
 
 .footer {
-    width: 100%;
-    background-color: rgba(47, 68, 72, 1);
-    position: static;
-    left: 0;
-    bottom: 0;
-    padding: rem(26px) 0 rem(15px) 0px;    
-    z-index: 100;
+  width: 100%;
+  background-color: rgba(47, 68, 72, 1);
+  position: static;
+  left: 0;
+  bottom: 0;
+  padding: rem(26px) 0 rem(15px) 0px;
+  z-index: 100;
 }
 
 .footer_position_absolute {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    background-color: rgba(85, 91, 94, .85);    
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(85, 91, 94, .85);
 }
 
 .footer-top {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: rem(15px);
-    border-bottom: rem(1px) solid rgba(255, 255, 255, .2);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: rem(15px);
+  border-bottom: rem(1px) solid rgba(255, 255, 255, .2);
 
-    @include tablets() {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: rem(45px);
-        padding-bottom: 25%;     
-    }        
+  @include tablets() {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: rem(45px);
+    padding-bottom: 25%;
+  }
 }
 
-.footer-top, .footer-bottom {
-    padding: 0 rem(30px);
-    
-    @include phones() {
-        padding: 0 rem(15px);
-    }
-}    
+.footer-top,
+.footer-bottom {
+  padding: 0 rem(30px);
 
-.foot-nav, .foot-socials {
-    margin-bottom: rem(5px);
+  @include phones() {
+    padding: 0 rem(15px);
+  }
+}
+
+.foot-nav,
+.foot-socials {
+  margin-bottom: rem(5px);
 }
 
 .foot-nav__item {
-    display: inline-block;
-    margin-left: rem(34px);
-    @include vertical() {
-        margin-left: rem(9px);
-    }
-    &:first-child {
-        margin-left: 0;
-    }
+  display: inline-block;
+  margin-left: rem(34px);
+  @include vertical() {
+    margin-left: rem(9px);
+  }
+  &:first-child {
+    margin-left: 0;
+  }
 }
 
 .foot-nav__link {
-    display: inline-block;
-    font-family: "Roboto-Medium";
-    color: #fff;
-    border-bottom: rem(2px) solid transparent;
-    &:hover .foot-nav__link-box {
-        width: 100%;
-        transition: .4s;
-    }
+  display: inline-block;
+  font-family: "Roboto-Medium";
+  color: #fff;
+  border-bottom: rem(2px) solid transparent;
+  &:hover .foot-nav__link-box {
+    width: 100%;
+    transition: .4s;
+  }
 }
 
 .foot-nav__link-box {
-    width: 0;
-    border-top: 2px solid #fff;
-    transition: .4s;    
+  width: 0;
+  border-top: 2px solid #fff;
+  transition: .4s;
 }
 
 .foot-soc__item {
-    display: inline-block;
-    margin-left: rem(5px);
-    &:first-child {
-        margin-left: 0;
-    }
+  display: inline-block;
+  margin-left: rem(5px);
+  &:first-child {
+    margin-left: 0;
+  }
 }
 
-.foot-soc__svg {    
-    width: rem(36px);
-    height: rem(36px);
+.foot-soc__svg {
+  width: rem(36px);
+  height: rem(36px);
 
-    @include tablets() {
-        width: rem(40px);
-        height: rem(40px);
-    }
+  @include tablets() {
+    width: rem(40px);
+    height: rem(40px);
+  }
 
-    &:hover .foot-soc__hovericon {
-        fill: #fff;
-    }
-    &:hover .foot-soc__icon {
-        fill: none;
-    }
+  &:hover .foot-soc__hovericon {
+    fill: #fff;
+  }
+  &:hover .foot-soc__icon {
+    fill: none;
+  }
 }
 
 .foot-soc__hovericon {
-     fill: none;  
+  fill: none;
 }
 
 .foot-soc__icon {
-    fill: #fff;
+  fill: #fff;
 }
 
 .foot-soc__circle-first {
-    fill: none;
-    stroke: #fff;
+  fill: none;
+  stroke: #fff;
 }
 
 .footer-bottom {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
-    @include tablets() {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0 rem(30px);
-    }
+  @include tablets() {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 rem(30px);
+  }
 }
 
-.foot-info, .foot-copyright {
-    color: rgba(255, 255, 255, .5);
-    width: 50%;
+.foot-info,
+.foot-copyright {
+  color: rgba(255, 255, 255, .5);
+  width: 50%;
 
-    @include tablets() {
-        width: 100%;
-        text-align: center;
-    }
+  @include tablets() {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .foot-copyright {
-    display: flex;
-    justify-content: flex-end;   
-    align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 
-    @include tablets() {
-        justify-content: center;   
-    }
+  @include tablets() {
+    justify-content: center;
+  }
 }

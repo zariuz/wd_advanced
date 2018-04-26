@@ -1,22 +1,22 @@
 // Adjustment
 
 .wrapper {
-    position: relative;
-    width: 100%;
-    min-height: 100%;
-    min-width: rem(300px);
-    overflow: hidden;
-  }
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  min-width: rem(300px);
+  overflow: hidden;
+}
   
 .maincontent {
-    height: 100%;
-    min-height: rem(650px);
-    transition: transform 1s;
-    will-change: transform;
-  
-    @include tablets {
-    min-height: auto;
-    }
+  height: 100%;
+  min-height: rem(650px);
+  transition: transform 1s;
+  will-change: transform;
+
+  @include tablets {
+  min-height: auto;
+  }
 }
   
 .header_upper_case {
@@ -44,35 +44,35 @@
 }
 
 .title-main {
-    display: inline-block;
-    position: relative;
-    font-family: "Bernier";    
-    font-size: rem(63px);
-    color: #373e42;
+  display: inline-block;
+  position: relative;
+  font-family: "Bernier";    
+  font-size: rem(63px);
+  color: #373e42;
 
-    @include vertical() {
-      font-size: rem(45px);
+  @include vertical() {
+    font-size: rem(45px);
   }
-    &:before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 45%;
-        left: rem(-45px);
-        width: rem(22px);
-        height: rem(5px);
-        background-color: rgba(0, 0, 0, 0.2)
-    }
-    &:after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 45%;
-        right: rem(-45px);
-        width: rem(22px);
-        height: rem(5px);
-        background-color: rgba(0, 0, 0, 0.2)
-    } 
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 45%;
+    left: rem(-45px);
+    width: rem(22px);
+    height: rem(5px);
+    background-color: rgba(0, 0, 0, 0.2)
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 45%;
+    right: rem(-45px);
+    width: rem(22px);
+    height: rem(5px);
+    background-color: rgba(0, 0, 0, 0.2)
+  } 
 }
 
 .title-block {
@@ -87,24 +87,24 @@
   }
 
   &:before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 45%;
-      left: rem(-45px);
-      width: rem(22px);
-      height: rem(5px);
-      background-color: rgba(0, 0, 0, 0.2)
+    content: "";
+    display: block;
+    position: absolute;
+    top: 45%;
+    left: rem(-45px);
+    width: rem(22px);
+    height: rem(5px);
+    background-color: rgba(0, 0, 0, 0.2)
   }
   &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 45%;
-      right: rem(-45px);
-      width: rem(22px);
-      height: rem(5px);
-      background-color: rgba(0, 0, 0, 0.2)
+    content: "";
+    display: block;
+    position: absolute;
+    top: 45%;
+    right: rem(-45px);
+    width: rem(22px);
+    height: rem(5px);
+    background-color: rgba(0, 0, 0, 0.2)
   }
 }
   

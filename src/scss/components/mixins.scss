@@ -7,27 +7,27 @@
 }
 
 @mixin dash {
-    position: relative;
-    font-family: "Bernier";
-    color: #455a64;
-    &:before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: -35px;
-        width: 22px;
-        height: 5px;
-        background-color: rgba(0, 0, 0, 0.2)
-    }
-    &:after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        right: -35px;
-        width: 22px;
-        height: 5px;
-        background-color: rgba(0, 0, 0, 0.2)
-    }
+  position: relative;
+  font-family: "Bernier";
+  color: #455a64;
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: -35px;
+    width: 22px;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.2)
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -35px;
+    width: 22px;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.2)
+  }
 }

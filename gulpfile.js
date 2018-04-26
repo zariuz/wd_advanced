@@ -110,8 +110,8 @@ function server() {
 function imgMin() {
     return gulp.src(paths.images.src)
         .pipe(plumber())
-        .pipe(imagemin())
-//      .pipe(notify('Image success'))
+//        .pipe(imagemin())
+//        .pipe(notify('Image success'))
         .pipe(plumber.stop())
         .pipe(gulp.dest(paths.images.dest));
 }

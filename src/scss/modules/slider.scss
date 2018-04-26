@@ -21,65 +21,63 @@
 
 
 .portfolio-text__but {
-position: relative;
-display: inline-block;
-padding: rem(13px) rem(18px) rem(13px) rem(48px);
-background-color: #00bfa5;
-border-radius: rem(5px);
-font-family: "Roboto-Medium";
-font-size: rem(16px);
-color: #fff;
-
-
+  position: relative;
+  display: inline-block;
+  padding: rem(13px) rem(18px) rem(13px) rem(48px);
+  background-color: #00bfa5;
+  border-radius: rem(5px);
+  font-family: "Roboto-Medium";
+  font-size: rem(16px);
+  color: #fff;
 }
 
 .portfolio-slider__text-svg {
-position: absolute;
-top: 10px;
-left: 13px;
-width: rem(20px);
-height: rem(20px);
-fill: #fff;
+  position: absolute;
+  top: 10px;
+  left: 13px;
+  width: rem(20px);
+  height: rem(20px);
+  fill: #fff;
 }
 
 .portfolio-slider {
-display: flex;
-flex-wrap: wrap;
-flex-direction: column;
-width: 100%;
-max-height: 100%;
-height: 100%;
-background-color: #efebe0;
-@include tablets() {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   width: 100%;
-  flex-wrap: nowrap;
-}
+  max-height: 100%;
+  height: 100%;
+  background-color: #efebe0;
+  @include tablets() {
+    width: 100%;
+    flex-wrap: nowrap;
+  }
 }
 
 .portfolio-slider__head-box {
-padding: rem(30px);
-max-height: 100%;
-height: 100%;
-width: 100%;
-display: flex;
-align-items: center;
+  padding: rem(30px);
+  max-height: 100%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .portfolio-slider__head-img {
-max-width: 100%;
-max-height: 100%;
-display: block;
-margin: 0 auto;
-opacity: 1;
-&.active {
-  animation: slideAnim 1.55s;
-}
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: 0 auto;
+  opacity: 1;
+  &.active {
+    animation: slideAnim 1.55s;
+  }
 }
 
 .portfolio-slider__slides-navsvg {
-z-index: 10;
-width: rem(25px);
-height: rem(25px);
-fill: #fff;
-transition: 1s;
+  z-index: 10;
+  width: rem(25px);
+  height: rem(25px);
+  fill: #fff;
+  transition: 1s;
 }
