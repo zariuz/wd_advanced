@@ -1,0 +1,47 @@
+- var text = "значение переменной"
+- var items = ["Один", "Два", "Три", "Четыре"]
+
+a.class#id(href="#" title="Ссылка").block= text
+  #hello Привет!
+.class-name
+  .class-inner Какойто текст
+
+each item, index in items
+  .wraper
+    .block= item
+    .index= index
+    .length= items.length
+
+hr
+
+- for (var i = 0; i < items.length; i++)
+  .wraper
+    .block= items[i]
+    .index= i
+    .legth= items.length
+
+hr
+
+-
+  var obj = [
+    {
+      link: '<a href="#">ссылка1</a>',
+      title: 'prop1'
+    },{
+      link: '<a href="#">ссылка2</a>',
+      title: 'prop2'
+    },{
+      link: '<a href="#">ссылка3</a>',
+      title: 'prop3'
+    }
+  ]
+
+each item in obj
+  .obj
+    .link Здесь будет !{item.link}
+    if item.title == 'prop2'
+      .title(data-title=`${item.title}`) Условие выполнено
+    else if item.title == 'prop3'
+      .title Условие выполнено для prop3
+    else
+      .title Условие ложное
